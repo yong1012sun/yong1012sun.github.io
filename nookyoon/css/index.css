@@ -1,0 +1,125 @@
+.swiper-button-next,
+.swiper-button-prev {
+  background: url(../img/main/arrow_next7.png) no-repeat;
+}
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  content: none !important;
+}
+.swiper-button-prev {
+  transform: rotate(180deg);
+}
+.m-swiper-slide {
+  display: none;
+}
+#bestItem {
+  margin: 0 auto;
+  max-width: 1980px;
+}
+.best_text {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px 10px 15px 10px;
+}
+#bestItem .title_tit {
+  color: #393939;
+  font-size: 30px;
+}
+.index_all {
+  color: #393939;
+  margin: 20px 10px 0 0;
+  font-size: 14px;
+}
+.foot ul li a:hover {
+  font-weight: 600;
+}
+.index_all::after {
+  content: "";
+  display: inline-block;
+  height: 4px;
+  width: 4px;
+  border-left: 1px solid #393939;
+  border-bottom: 1px solid #393939;
+  transform: rotate(-135deg);
+  margin: 0 0 3px 5px;
+}
+.swiper-wrapper {
+  display: flex;
+}
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.bestimg {
+  position: relative;
+}
+.pd-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: 0.5s;
+}
+.pd-bg:hover {
+  opacity: 1;
+}
+.pd {
+  width: 350px;
+  height: 150px;
+  border: 2px solid #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.pd p {
+  color: #fff;
+  text-shadow: 1px 2px 3px #000;
+}
+.pd a {
+  border: 1px solid #fff;
+  padding: 3px 10px;
+  border-radius: 50px;
+  background: rgba(100%, 100%, 100%, 0.2);
+  box-shadow: 1px 2px 8px #333;
+  text-shadow: 1px 2px 2px #000;
+}
+.pd a:hover {
+  background: rgba(100%, 100%, 100%, 0.1);
+}
+@media (max-width: 1280px) {
+  .pd{
+    width: 220px;
+  }
+}
+@media (max-width: 780px) {
+.pd {
+  width: 180px !important;
+}
+}
+@media (max-width: 639px) {
+  .d-swiper-slide {
+    display: none !important;
+  }
+  .m-swiper-slide {
+    display: block !important;
+  }
+}
+@media (max-width: 480px) {
+  .shop {
+    margin: 150px auto 250px;
+  }
+  .pd {
+    width: 250px !important;
+    height: 350px !important;
+  }
+}

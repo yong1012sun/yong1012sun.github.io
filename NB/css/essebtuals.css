@@ -1,0 +1,191 @@
+@import url("https://fonts.googleapis.com/css2?family=Noticia+Text:wght@400;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap");
+.container {
+  min-width: 1200px;
+  padding-bottom: 200px;
+}
+.sub_nofix_header {
+  padding: 90px 0 60px;
+  text-align: center;
+}
+.sub_nofix_header h2 {
+  font-size: 80px;
+  line-height: 1;
+  font-family: "Noticia Text", serif;
+}
+.sub_nofix_header p {
+  font-size: 28px;
+  letter-spacing: -0.05em;
+  margin-top: 10px;
+}
+.subContainer {
+  padding: 0 55px;
+}
+.subContainer > div {
+  margin-bottom: 180px;
+}
+.subContainer img {
+  max-width: 100%;
+  display: block;
+}
+.visual_txtbox {
+  margin-top: 30px;
+  margin-bottom: 150px;
+}
+.main_visual-textbox .visual_txtbox {
+  text-align: center;
+}
+.main_visual-textbox .txtbox_title {
+  font-size: 42px;
+  font-weight: 800;
+  color: #141414;
+  margin: 0 0 0;
+  line-height: 1.2;
+}
+.main_visual-textbox .txtbox_sub {
+  font-size: 18px;
+  display: block;
+  font-weight: normal;
+  line-height: 2;
+  margin-top: 3px;
+}
+.visual_txtbox .btn_wrap-main {
+  margin-top: 30px;
+}
+.mainBtn {
+  font-size: 16px;
+  color: #141414;
+  padding: 10px;
+  display: inline-block;
+  vertical-align: top;
+  border-radius: 5px;
+  line-height: 1;
+  min-width: 120px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.mainBtn-white {
+  border: 1px solid #898989;
+}
+.visual_txtbox .mainBtn {
+  display: inline-block;
+  min-width: 140px;
+  padding: 15px 10px;
+  width: auto;
+}
+.mainBtn-black {
+  background: #141414;
+  border: 1px solid #141414;
+  color: #fff;
+}
+.mainBtn + .mainBtn {
+  margin-left: 10px;
+}
+
+
+.scrollBtn_slider {
+    position: relative;
+}
+.sub_pdCon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0 13.6%;
+  margin-bottom: auto !important;
+}
+.sub_pd_slideArea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 60px 58px 130px;
+  position: relative;
+}
+.sub_pd_slideArea .main_subTitle {
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 1.2;
+}
+.subTitle_link {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+  padding-right: 16px;
+  letter-spacing: -0.05em;
+}
+.subTitle_link.underline {
+  padding-right: 0;
+  padding-bottom: 6px;
+}
+.subTitle_link.underline::after {
+  width: 100%;
+  content: "";
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  height: 1px;
+  background: #000;
+  top: auto;
+  bottom: 0;
+}
+.main_subTitle {
+  font-weight: 700;
+  font-size: 43px;
+  margin-bottom: 28px;
+  position: relative;
+  line-height: 43px;
+}
+.sub_pd_slideArea .main_subTitle {
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 1.2;
+}
+.swiper-container {
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  direction: ltr;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+  z-index: 1;
+}
+.scroll_btn {
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  top: 57%;
+  margin-top: -77px;
+  cursor: pointer;
+}
+.scroll_btn.prev {
+  background: url(https://image.nbkorea.com/NBRB_PC/common/btn_slide_left6.png)
+    no-repeat;
+  left: -58px;
+}
+.scrollBtn_slider .next {
+  background: url(https://image.nbkorea.com/NBRB_PC/common/btn_slide_right6.png)
+    no-repeat;
+  right: -58px;
+}
+.swiper-slide{
+  margin-bottom: 40px;
+}
+.swiper-scrollbar {
+  width: 100% !important;
+  height: 4px !important;
+  position: absolute;
+  left: 0 !important;
+  bottom: 0 !important;
+  opacity: 1 !important;
+}
+.swiper-scrollbar-drag {
+  background: rgba(0,0,0,1) !important;
+}

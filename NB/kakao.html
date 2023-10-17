@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/kakao/favicon.ico" type="image/x-icon" />
+    <title>카카오톡 로그인</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      ul {
+        list-style: none;
+      }
+      a {
+        text-decoration: none;
+      }
+      button {
+        border: 0;
+        background-color: transparent;
+        cursor: pointer;
+      }
+      .wrap {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        width: 100%;
+      }
+      .container {
+        height: 100%;
+        font-size: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .inner_container {
+        display: inline-block;
+        width: 100%;
+        font-size: 12px;
+      }
+      .doc-title {
+        padding-top: 50px;
+      }
+      .tit_service {
+        display: block;
+      }
+      .logo_kakao {
+        display: block;
+        width: 88px;
+        height: 27px;
+        margin: 0 auto;
+        background: #fff url(img/kakao/logo_kakao.png) no-repeat 0 0;
+        background-size: 100px 80px;
+        font-size: 19px;
+        line-height: 27px;
+        text-align: center;
+      }
+      .ir_pm,
+      .ir_wa {
+        display: block;
+        overflow: hidden;
+      }
+      .ir_wa {
+        position: relative;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+      }
+      .content-article {
+        width: 580px;
+        height: 100%;
+        margin: 40px auto 42px;
+        padding: 0 69px;
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        font-size: 12px;
+        box-sizing: border-box;
+      }
+      .content-article [class^="cont_"] {
+        position: relative;
+        height: 100%;
+        padding: 55px 0 50px;
+        box-sizing: border-box;
+      }
+      .content-article .cont_login {
+        word-wrap: break-word;
+      }
+      .item_form {
+        position: relative;
+        margin-top: 5px;
+        padding-bottom: 3px;
+      }
+      .item_form.fst {
+        margin-top: 47px;
+      }
+      .login_kakaomail .item_form.fst {
+        margin-top: 4px;
+      }
+      .box_tf {
+        position: relative;
+        border: solid #ccc;
+        border-width: 0 0 2px;
+      }
+      .box_tf.util_on {
+        padding-right: 90px;
+      }
+      .box_tf .tf_g {
+        position: relative;
+        z-index: 1;
+        width: 90%;
+        min-height: 45px;
+        padding: 10px 0 8px;
+        border: 0;
+        font-size: 18px;
+        line-height: 25px;
+        color: #191919;
+        background-color: transparent;
+        letter-spacing: 0;
+        box-sizing: border-box;
+        outline: 0 none;
+        caret-color: #191919;
+        opacity: 1;
+      }
+      .box_tf .util_tf {
+        position: absolute;
+        right: 0;
+        top: 2px;
+        z-index: 10;
+        min-width: 55px;
+        height: 43px;
+        font-size: 0;
+        text-align: right;
+      }
+      .btn_clear {
+        display: inline-block;
+        vertical-align: top;
+      }
+      .box_tf .btn_clear {
+        margin-top: 7px;
+      }
+      .ico_comm {
+        background: url(img/kakao/ico_comm.png) 0 0 no-repeat;
+        background-size: 300px auto;
+      }
+      .ico_account,
+      .ico_comm {
+        display: inline-block;
+        overflow: hidden;
+        font-size: 1px;
+        line-height: 0;
+        color: transparent;
+        vertical-align: top;
+      }
+      .btn_clear .ico_clear {
+        width: 20px;
+        height: 20px;
+        margin: 5px;
+        background-position: -50px -25px;
+      }
+      .txt_mail {
+        display: inline-block;
+        padding: 10px 0 0 5px;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 23px;
+        color: #8e8e8e;
+        letter-spacing: -0.02em;
+      }
+      .info_tip {
+        padding: 13px 0 8px;
+        font-size: 12px;
+        line-height: 18px;
+        color: #666;
+      }
+      .info_tip .txt_tip {
+        font-weight: 700;
+        color: #e65f32;
+      }
+      .set_login {
+        margin-top: 25px;
+      }
+      .item_choice {
+        display: block;
+        position: relative;
+        vertical-align: top;
+      }
+      .cont_login .item_choice {
+        display: block;
+      }
+      .set_login .item_choice {
+        float: left;
+        padding-right: 0;
+      }
+      .item_choice .inp_choice {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background: none;
+        cursor: pointer;
+      }
+      .set_login .inp_choice {
+        top: 0;
+      }
+      .set_login .item_choice .inp_choice {
+        right: 24px;
+        width: auto;
+      }
+      .item_choice .lab_choice {
+        display: block;
+        position: relative;
+        padding-left: 28px;
+        font-size: 16px;
+        line-height: 22px;
+        color: #191919;
+        cursor: pointer;
+      }
+      .set_login .lab_choice {
+        font-size: 14px;
+        line-height: 20px;
+        color: rgba(0, 0, 0, 0.7);
+      }
+      .set_login .item_choice .lab_choice {
+        float: left;
+      }
+      .item_choice .lab_choice .ico_comm {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        margin-right: 8px;
+      }
+      .item_choice .lab_choice .ico_check {
+        background-position: 0 0;
+      }
+      .item_choice .inp_choice:checked + .lab_choice .ico_check {
+        background-position: -25px 0;
+      }
+      .set_login .lab_choice .ico_check {
+        margin: 0 8px 0 0;
+      }
+      .set_login .item_choice .btn_help {
+        float: left;
+        margin: 1px 0 0 6px;
+      }
+      .ico_help {
+        display: block;
+        width: 20px;
+        height: 20px;
+        background-position: 0 -140px;
+      }
+      .set_login .item_choice .ico_help {
+        width: 18px;
+        height: 18px;
+        background-position: -120px -110px;
+      }
+      .tooltip_comm {
+        position: absolute;
+        z-index: 10;
+        width: 280px;
+        padding: 8px 12px;
+        border-radius: 3px;
+        font-size: 12px;
+        color: #fff;
+        text-align: left;
+        background-color: rgba(0, 0, 0, 0.8);
+        box-sizing: border-box;
+        word-break: keep-all;
+      }
+      .tooltip_login {
+        top: 29px;
+        box-sizing: unset;
+      }
+      .tooltip_comm .link_more {
+        display: inline-block;
+        position: relative;
+        top: auto;
+        right: auto;
+        margin-top: 10px;
+        font-size: 12px;
+        vertical-align: top;
+        color: #fbdd0d;
+      }
+      .tooltip_login .link_more {
+        margin-top: 0;
+        color: #fbdd0f;
+      }
+      .ir_caption,
+      .screen_out {
+        overflow: hidden;
+        line-height: 0;
+        text-indent: -9999px;
+      }
+      .screen_out {
+        position: absolute;
+        width: 0;
+        height: 0;
+      }
+      .confirm_btn {
+        padding-top: 40px;
+        text-align: center;
+      }
+      .btn_g {
+        display: block;
+        width: 100%;
+        height: 50px;
+        border-radius: 4px;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 51px;
+        color: #191919;
+        background-color: #f0f0f0;
+      }
+      .btn_g.highlight {
+        background-color: #fee500;
+      }
+      .line_or {
+        position: relative;
+        display: block;
+        width: 100%;
+        padding: 15px 0;
+        font-size: 0;
+        line-height: 0;
+      }
+      .line_or:after,
+      .line_or:before {
+        display: inline-block;
+        width: calc(50% - 20px);
+        height: 1px;
+        margin: 8px 0;
+        background-color: rgba(0, 0, 0, 0.06);
+        vertical-align: top;
+        content: "";
+      }
+      .BoxLayout_root__Ya1Da .line_or .txt_or {
+        display: inline-block;
+        width: 40px;
+        font-size: 12px;
+        line-height: 18px;
+        text-align: center;
+        color: #828282;
+      }
+      .cont_login .info_user {
+        margin-top: 26px;
+      }
+      .info_user .link_join {
+        float: left;
+        font-size: 12px;
+      }
+      .cont_login a {
+        color: #191919;
+      }
+      .info_user .list_user {
+        float: right;
+      }
+      .info_user .list_user li {
+        float: left;
+      }
+      .info_user .list_user li:before {
+        content: "";
+        float: left;
+        width: 1px;
+        height: 10px;
+        margin: 4px 10px;
+        background-color: rgba(0, 0, 0, 0.08);
+      }
+      .info_user .list_user li:first-child::before {
+        content: none;
+      }
+      footer {
+        display: block;
+        padding-bottom: 50px;
+        text-align: center;
+        white-space: nowrap;
+      }
+      .service_info,
+      .link_info {
+        display: inline-block;
+        vertical-align: top;
+      }
+      .service_info .link_info {
+        font-size: 12px;
+        padding: 0 5px;
+        color: #4c4c4c;
+      }
+      .service_info .link_info:first-child {
+        margin-left: 0;
+      }
+      .txt_copyright {
+        display: block;
+        margin-top: 6px;
+        font-size: 11px;
+        line-height: 18px;
+        color: rgba(0, 0, 0, 0.5);
+      }
+      .link_kakaocorp {
+        font-weight: 700;
+        color: rgba(0, 0, 0, 0.5);
+      }
+    </style>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script>
+      $(function () {
+        $(".box_tf input").click(function () {
+          // loginId와 password 입력 상자에 대한 클릭 이벤트 핸들러
+          var $box_tf = $(this).parent(".box_tf"); // 클릭한 입력 상자의 부모 요소인 .box_tf를 선택
+          $box_tf.css("borderColor", "#191919"); // 클릭한 상자의 borderColor를 변경
+          $(".box_tf").not($box_tf).css("borderColor", "#ccc"); // 다른 .box_tf 요소의 borderColor를 원래대로 복원
+        });
+      });
+    </script>
+    <script>
+      $(function () {
+        // 초기에 모든 .info_tip 요소를 숨김 처리
+        $(".info_tip").hide();
+        $(".box_tf input").on("focus", function () {
+          var $box_tf = $(this).closest(".box_tf"); // 클릭한 입력 상자의 부모 요소인 .box_tf를 선택
+          $box_tf.css("borderColor", "#191919"); // 클릭한 상자의 borderColor를 변경
+          $(".box_tf").not($box_tf).css("borderColor", "#ccc"); // 다른 .box_tf 요소의 borderColor를 원래대로 복원
+
+          // 클릭한 입력 상자 부모 요소의 다음에 오는 .info_tip 요소를 표시
+          $box_tf.next(".info_tip").show();
+        });
+
+        // 입력 상자를 벗어났을 때 .info_tip 숨김 처리
+        $(".box_tf input").blur(function () {
+          var $box_tf = $(this).closest(".box_tf");
+          $box_tf.css("borderColor", "#ccc");
+          $box_tf.next(".info_tip").hide();
+        });
+      });
+    </script>
+
+    <script>
+      $(function () {
+        // "입력 내용 지우기" 버튼을 클릭했을 때 처리
+        $(".btn_clear").click(function () {
+          var $box_tf = $(this).closest(".box_tf"); // 클릭한 버튼의 부모 요소인 .box_tf를 선택
+          var $input = $box_tf.find("input"); // .box_tf 내부의 input 요소를 선택
+          $input.val(""); // 입력 상자의 값을 비움
+          $box_tf.find(".util_tf").hide(); // .util_tf 숨김
+        });
+
+        // 입력 상자의 값이 변경될 때 처리
+        $(".box_tf input").on("input", function () {
+          var $box_tf = $(this).parent(".box_tf");
+          var $util_tf = $box_tf.find(".util_tf");
+
+          if ($(this).val().trim() !== "") {
+            $util_tf.show(); // 입력값이 있는 경우 .util_tf 표시
+          } else {
+            $util_tf.hide(); // 입력값이 없는 경우 .util_tf 숨김
+          }
+        });
+
+        // 초기에 숨김 처리
+        $(".box_tf .util_tf").hide();
+      });
+    </script>
+    <script>
+      $(function () {
+        $(".tooltip_comm.tooltip_login").hide();
+        // "도움말 보기" 버튼을 클릭했을 때 처리
+        $(".btn_help").click(function () {
+          var $tooltip = $(this)
+            .closest(".item_choice")
+            .find(".tooltip_comm.tooltip_login");
+          $tooltip.toggle(); // 클릭할 때마다 보이기/숨기기 전환
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="container">
+        <div class="inner_container">
+          <main class="doc-main">
+            <div class="doc-title">
+              <h1 class="tit_service">
+                <span class="logo_kakao"><span class="ir_wa">Kakao</span></span>
+              </h1>
+            </div>
+            <article class="content-article">
+              <div class="cont_login">
+                <div class="login_kakaomail">
+                  <div>
+                    <div class="itemform fst">
+                      <div class="box_tf">
+                        <input
+                          type="text"
+                          name="loginId"
+                          placeholder="카카오메일 아이디, 이메일, 전화번호 "
+                          class="tf_g"
+                          value=""
+                        />
+                        <div class="util_tf">
+                          <button type="button" class="btn_clear">
+                            <span class="ico_comm ico_clear"
+                              >입력 내용 지우기</span
+                            ></button
+                          ><span class="txt_mail">@kakao.com</span>
+                        </div>
+                      </div>
+
+                      <p class="info_tip" role="alert">
+                        <span role="text"
+                          ><span class="txt_tip">TIP</span> 카카오메일이 있다면
+                          메일 아이디만 입력해 보세요.</span
+                        >
+                      </p>
+                    </div>
+                    <div class="itemform">
+                      <div class="box_tf">
+                        <input
+                          type="password"
+                          name="password"
+                          placeholder="비밀번호"
+                          class="tf_g"
+                          value=""
+                        />
+                        <div class="util_tf">
+                          <button type="button" class="btn_clear">
+                            <span class="ico_comm ico_clear"
+                              >입력 내용 지우기</span
+                            >
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="set_login">
+                      <!-- 체크박스 부분 수정 -->
+                      <div class="item_choice">
+                        <input
+                          type="checkbox"
+                          class="inp_choice"
+                          id="saveSignedIn"
+                          name="saveSignedIn"
+                          value="false"
+                        />
+                        <label class="lab_choice" for="saveSignedIn">
+                          <!-- for 추가 -->
+                          <span class="ico_comm ico_check"></span>간편로그인
+                          정보 저장
+                        </label>
+                        <button type="button" class="btn_help">
+                          <span class="ico_comm ico_help">도움말 보기</span>
+                        </button>
+                        <div class="tooltip_comm tooltip_login">
+                          <p class="txt_tooltip">
+                            로그인한 계정의 정보가 저장됩니다. 개인정보 보호를
+                            위해 개인 기기에서만 사용해 주세요.
+                          </p>
+                          <a href="" target="_blank" class="link_more"
+                            >도움말 보기
+                            <span class="screen_out"
+                              >새창열림, 카카오 고객센터로 이동</span
+                            ></a
+                          ><span class="ico_account ico_arr"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="confirm_btn">
+                      <button type="submit" class="btn_g highlight submit">
+                        로그인
+                      </button>
+                      <span class="line_or"
+                        ><span class="txt_or">또는</span></span
+                      >
+                      <button type="button" class="btn_g">QR코드 로그인</button>
+                    </div>
+                  </div>
+                  <div class="info_user">
+                    <div class="info_user">
+                      <a href="" class="link_join">회원가입</a>
+                      <ul class="list_user">
+                        <li><a href="" class="link_user">계정 찾기</a></li>
+                        <li><a href="">비밀번호 찾기</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </main>
+        </div>
+        <footer>
+          <div class="service_info">
+            <a href="" class="link_info">이용약관</a
+            ><a href="" class="link_info"><strong>개인정보 처리방침</strong></a
+            ><a href="" class="link_info">운영정책</a
+            ><a href="" class="link_info">고객센터</a
+            ><a href="" class="link_info">공지사항</a>
+          </div>
+          <small class="txt_copyright"
+            >Copyright ©
+            <a class="link_kakaocorp" href="http://kakaocorp.com/"
+              >Kakao Corp.</a
+            >
+            All rights reserved.</small
+          >
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>

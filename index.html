@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <meta http-equiv="refresh" content="5; url=어쩌구.html"> -->
+    <title>+YulA PORTFOLIO+</title>
+    <link rel="icon" href="img/icon_click.png" type="image/x-icon" />
+    <link rel="stylesheet" href="css/index.css" />
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/index.js"></script>
+    <script>
+      $(".next_bg").css({ display: "none", opacity: "0" });
+
+      function trans_move_event() {//함수 정의
+        $(".next_bg").css("display", "block");
+
+        $(".next_bg").css("opacity", "1");
+
+        $(".next_bg .NBg.NB1").css(
+          "height",
+          $(".next_bg .NBg.NB1").innerWidth() + "px"
+        );
+        $(".next_bg .NBg.NB2").css(
+          "height",
+          $(".next_bg .NBg.NB2").innerWidth() + "px"
+        );
+        $(".next_bg .NBg.NB3").css(
+          "height",
+          $(".next_bg .NBg.NB3").innerWidth() + "px"
+        );
+        $(".next_bg .NBg.NB4").css(
+          "height",
+          $(".next_bg .NBg.NB4").innerWidth() + "px"
+        );
+        $(".next_bg .NBg.NB5").css(
+          "height",
+          $(".next_bg .NBg.NB5").innerWidth() + "px"
+        );
+        $(".next_bg .NBg.NB6").css(
+          "height",
+          $(".next_bg .NBg.NB6").innerWidth() + "px"
+        );
+        $(".next_bg .NBg.NB7").css(
+          "height",
+          $(".next_bg .NBg.NB7").innerWidth() + "px"
+        );
+
+        $(".next_bg").removeClass("on").addClass("off");
+
+        setTimeout(function () {
+          $(".next_bg").css("background-color", "#22242b");
+        }, 600);
+
+        setTimeout(function () {
+          location.href = "main.html";
+        }, 2000);
+      }
+    </script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="page">
+        <div class="innerCont bgLayer">
+          <div class="bg_con bg_back">
+            <div class="bg bg1"><img src="img/bg1.png" alt="" /></div>
+            <div class="bg bg2"><img src="img/bg4.png" alt="" /></div>
+            <div class="bg bg3"><img src="img/bg3.png" alt="" /></div>
+            <div class="bg bg4"><img src="img/bg2.png" alt="" /></div>
+            <div class="bg bg5"><img src="img/bg5.png" alt="" /></div>
+            <div class="bg bg6"><img src="img/bg3.png" alt="" /></div>
+            <div class="bg bg7"><img src="img/bg1.png" alt="" /></div>
+            <div class="bg bg8"><img src="img/bg4.png" alt="" /></div>
+            <div class="bg bg9"><img src="img/bg2.png" alt="" /></div>
+            <div class="bg bg10"><img src="img/bg5.png" alt="" /></div>
+          </div>
+          <div class="cover"></div>
+          <div class="inner">
+            <p>UI/UX WEB PUBLISHER</p>
+            <h2>PORTFOLIO</h2>
+            <br />
+            <br />
+            <a href="javascript:trans_move_event();" class="start_btn">START</a>
+          </div>
+        </div>
+        <div class="innerCont maskLayer">
+          <div class="bg_con">
+            <div class="bg bg1"><img src="img/bg1.png" alt="" /></div>
+            <div class="bg bg2"><img src="img/bg4.png" alt="" /></div>
+            <div class="bg bg3"><img src="img/bg3.png" alt="" /></div>
+            <div class="bg bg4"><img src="img/bg2.png" alt="" /></div>
+            <div class="bg bg5"><img src="img/bg4.png" alt="" /></div>
+            <div class="bg bg6"><img src="img/bg3.png" alt="" /></div>
+            <div class="bg bg7"><img src="img/bg1.png" alt="" /></div>
+            <div class="bg bg8"><img src="img/bg5.png" alt="" /></div>
+            <div class="bg bg9"><img src="img/bg2.png" alt="" /></div>
+            <div class="bg bg10"><img src="img/bg5.png" alt="" /></div>
+          </div>
+          <div class="inner">
+            <p>Yul A's First Step</p>
+            <h2>PORTFOLIO</h2>
+            <br />
+            <br />
+            <a href="#">START</a>
+          </div>
+        </div>
+        <div class="hoverLayer"></div>
+      </div>
+    </div>
+    <div class="next_bg on" style="display: none; opacity: 0">
+      <div class="NBg NB1"></div>
+      <div class="NBg NB2"></div>
+      <div class="NBg NB3"></div>
+      <div class="NBg NB4"></div>
+      <div class="NBg NB5"></div>
+      <div class="NBg NB6"></div>
+      <div class="NBg NB7"></div>
+      <div class="NBg NB8"></div>
+      <div class="text text1"><img src="img/y.png" alt="" /></div>
+      <div class="text text2"><img src="img/U.png" alt="" /></div>
+      <div class="text text3"><img src="img/l.png" alt="" /></div>
+      <div class="text text4"><img src="img/a.png" alt="" /></div>
+      <div class="text text5"><img src="img/p.png" alt="" /></div>
+      <div class="text text6"><img src="img/o2.png" alt="" /></div>
+      <div class="text text7"><img src="img/r.png" alt="" /></div>
+      <div class="text text8"><img src="img/t.png" alt="" /></div>
+      <div class="text text9"><img src="img/f.png" alt="" /></div>
+      <div class="text text10"><img src="img/o.png" alt="" /></div>
+      <div class="text text11"><img src="img/l2.png" alt="" /></div>
+      <div class="text text12"><img src="img/i.png" alt="" /></div>
+      <div class="text text13"><img src="img/o2.png" alt="" /></div>
+    </div>
+  </body>
+</html>

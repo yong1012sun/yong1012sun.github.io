@@ -1,0 +1,85 @@
+.popup_wrap {
+  position: relative;
+}
+.popup {
+  display: none;
+  position: fixed;
+  top: 38%;
+  left: 32%;
+  transform: translate(-70%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+  z-index: 99999;
+}
+@media (max-width: 1779px) {
+  .popup {
+    top: 38%;
+    left: 37%;
+    transform: translate(-70%, -50%);
+  }
+}
+@media (max-width: 1459px) {
+  .popup {
+    top: 38%;
+    left: 42%;
+    transform: translate(-70%, -50%);
+  }
+}
+@media (max-width: 992px) {
+ .popup_wrap {
+  display: none;
+ }
+}
+#closeButton {
+  position: absolute;
+  top: 21px;
+  right: 30px;
+  border: none;
+  height: 40px;
+  width: 40px;
+  background: url(../images/img_icon/adn_closed_btn_close_2021.png) no-repeat
+    right 0.5rem center/20px 20px;
+}
+.tit {
+  background: #222;
+  height: 40px;
+  line-height: 40px;
+  color: #fff;
+  text-align: center;
+}
+.popup_img {
+  display: flex;
+}
+.closing_products {
+  display: flex;
+}
+.closing_products li {
+  position: relative;
+  margin: 10px 0 10px 10px;
+  overflow: hidden;
+}
+.closing_products li img {
+  transform: scale(1);
+  transition: 0.3s;
+}
+.closing_products li:hover img {
+  position: relative;
+  transform: scale(1.1);
+}
+.poa {
+  display: none;
+}
+.closing_products li:hover .poa {
+  display: block;
+  background: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  padding-top: 50%;
+}

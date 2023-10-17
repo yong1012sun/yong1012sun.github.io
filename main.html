@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <meta http-equiv="refresh" content="5; url=어쩌구.html"> -->
+    <title>+YulA PORTFOLIO+</title>
+    <link rel="icon" href="img/icon_click.png" type="image/x-icon" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    /> 
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(".next_bg").css({ display: "block", opacity: "1" });
+
+        //
+        $(".next_bg .NBg.NB1").css(
+          "height",
+          $(".next_bg .NBg.NB1").innerWidth() + "px"
+        );
+
+        //
+        $(".next_bg .NBg.NB2").css(
+          "height",
+          $(".next_bg .NBg.NB2").innerWidth() + "px"
+        );
+
+        //
+        $(".next_bg .NBg.NB3").css(
+          "height",
+          $(".next_bg .NBg.NB3").innerWidth() + "px"
+        );
+ 
+        //
+        $(".next_bg .NBg.NB4").css(
+          "height",
+          $(".next_bg .NBg.NB4").innerWidth() + "px"
+        );
+
+        //
+        $(".next_bg .NBg.NB5").css(
+          "height",
+          $(".next_bg .NBg.NB5").innerWidth() + "px"
+        );
+
+        //
+        $(".next_bg .NBg.NB6").css(
+          "height",
+          $(".next_bg .NBg.NB6").innerWidth() + "px"
+        );
+
+        //
+        $(".next_bg .NBg.NB7").css(
+          "height",
+          $(".next_bg .NBg.NB7").innerWidth() + "px"
+        );
+        //
+        test02();
+      });
+      function test02() {
+        $(".next_bg").removeClass("off").addClass("on");
+
+        setTimeout(function () {
+          $(".next_bg").css("opacity", "0");
+        }, 1000);
+
+        setTimeout(function () {
+          $(".next_bg").css("display", "none");
+        }, 2000);
+      }
+    </script>
+    <style>
+      body {
+        background-color: #22242b;
+      }
+      .visual .swiper {
+        width: 100%;
+        height: 100%;
+      }
+      .visual .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .visual .swiper-slide-hidden {
+        display: none;
+      }
+      .visual .visual-txt {
+        height: 100%;
+      }
+      .visual .swiper-slide > p {
+        position: absolute;
+        width: 100%;
+        top: 40%;
+        left: 0;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        text-align: center;
+        font-size: 3rem;
+        font-weight: 300;
+        font-family: "Vitro_core";
+        text-shadow: 5px 5px 0px #ffd493;
+        -webkit-text-stroke: 1px #22242b;
+      }
+
+      .portfolio .swiper {
+      width: 80%;
+      height: 60%;
+      border-radius: 70px;
+    }
+
+    .portfolio .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .portfolio .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .portfolio .swiper-button-prev::after,.portfolio .swiper-button-next::after{
+      display:none;
+    }
+    .portfolio .swiper-button-prev,.portfolio .swiper-button-next{
+      position: absolute;
+      top: 50%;
+      display: block;
+      z-index: 10;
+      cursor: pointer;
+      color: transparent;
+      border: none;
+      outline: none;
+    }
+    .portfolio .swiper-button-prev::before,.portfolio .swiper-button-next::before{
+      opacity: .75;
+      content: "";
+      width: 100%;
+      height: 100%;
+      display: block;
+      background-image: url(img/arrow.png);
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+    }
+    .portfolio .swiper-button-prev::before {
+      transform: rotate(-180deg);
+    }
+    .portfolio .swiper-button-prev {
+      left: 18%;
+    }
+    .portfolio .swiper-button-next {
+      right: 18%;
+    }
+    .portfolio .swiper-pagination {
+      --swiper-theme-color: #ffd493;
+    }
+    .portfolio .swiper-slide{
+      display: flex;
+      flex-direction: column;
+    }
+    .portfolio .swiper-slide img{
+width: 50%;
+height: auto;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="next_bg">
+      <div class="NBg NB1"></div>
+      <div class="NBg NB2"></div>
+      <div class="NBg NB3"></div>
+      <div class="NBg NB4"></div>
+      <div class="NBg NB5"></div>
+      <div class="NBg NB6"></div>
+      <div class="NBg NB7"></div>
+      <div class="NBg NB8"></div>
+      <div class="text text1"><img src="img/y.png" alt="" /></div>
+      <div class="text text2"><img src="img/U.png" alt="" /></div>
+      <div class="text text3"><img src="img/l.png" alt="" /></div>
+      <div class="text text4"><img src="img/a.png" alt="" /></div>
+      <div class="text text5"><img src="img/p.png" alt="" /></div>
+      <div class="text text6"><img src="img/o2.png" alt="" /></div>
+      <div class="text text7"><img src="img/r.png" alt="" /></div>
+      <div class="text text8"><img src="img/t.png" alt="" /></div>
+      <div class="text text9"><img src="img/f.png" alt="" /></div>
+      <div class="text text10"><img src="img/o.png" alt="" /></div>
+      <div class="text text11"><img src="img/l2.png" alt="" /></div>
+      <div class="text text12"><img src="img/i.png" alt="" /></div>
+      <div class="text text13"><img src="img/o2.png" alt="" /></div>
+    </div>
+    <div class="wrap">
+      <section class="visual">
+        <div class="bg"></div>
+        <div class="swiper-container visual-txt">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <p>
+                <strong
+                  style="
+                    font-size: 4rem;
+                    color: #ffd493;
+                    text-shadow: 5px 5px 0px #fff;
+                  "
+                  >FEAR STOPPING RATHER THAN GROWING SLOWLY </strong
+                ><br />나날이 성장하는 웹 퍼블리셔
+              </p>
+            </div>
+            <div class="swiper-slide">
+              <p>
+                <strong
+                  style="
+                    font-size: 4rem;
+                    color: #ffd493;
+                    text-shadow: 5px 5px 0px #fff;
+                  "
+                  >천천히 성장하는 것보다 멈추는 것을 두려워합니다</strong
+                ><br />Web Publishers Are Growing Day by Day
+              </p>
+            </div>
+          </div>
+          <span
+            class="swiper-notification"
+            aria-live="assertive"
+            aria-atomic="true"
+          ></span>
+        </div>
+        <button class="btn-scrolldown">Scroll Down</button>
+      </section>
+      <section class="contents aboutme">
+        <div class="inner">
+          <h2>About me<br><strong style="font-size: 2rem;">안녕하세요, 저는 이런 사람이예요!</strong>
+          </h2>
+          <div class="profile">
+            <div class="left">
+              <img src="img/증명사진1.png" alt="프로필 사진" class="p-only" />
+            </div>
+            <div class="center">
+              <dl>
+                <dt>Name:</dt>
+                <dd>장율아</dd>
+                <dt>Birth:</dt>
+                <dd>2001. 10. 16</dd>
+                <dt>Address:</dt>
+                <dd>대전광역시 서구</dd>
+                <dt>E-Mail:</dt>
+                <dd>yulmu6101@gmail.com</dd>
+                <dt>Cell Phone:</dt>
+                <dd>+82-10-9736-2816</dd>
+              </dl>
+            </div>
+            <div class="right">
+              <h2  style="font-size: 2rem; margin-top: 10px;" >Skill</h2>
+              <ul class="logo-list">
+                <li class="photoshop"><span class="hidden">Photoshop</span></li>
+                <li class="ai"><span class="hidden">Illustrator</span></li>
+                <li class="figma"><span class="hidden">Figma</span></li>
+                <li class="html"><span class="hidden">HTML5</span></li>
+                <li class="css"><span class="hidden">CSS3</span></li>
+                <li class="javascript"><span class="hidden">Javascript</span></li>
+                <li class="jquery"><span class="hidden">Jquery</span></li>
+                <li class="react"><span class="hidden">React</span></li>
+                <li class="git"><span class="hidden">Git</span></li>
+            </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="portfolio">
+        <h2>Portfolio <br><strong style="font-size: 2rem;">저는 이런 작업을 했어요!</strong></h2>
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="img/1.png" alt="렌즈미">
+              <h3 class="portfolio_name">렌즈미 공식 홈페이지(클론 + 세미 리뉴얼 사이트)</h3>
+              <div class="tag">
+                <span>#HTML #CSS #JS</span>		
+                <span>#작업기간 20일</span>		
+              </div>
+              <div class="btn">
+                <a href="lensme/index.html" target="_blank" title="새창으로 열기" tabindex="0">view</a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <img src="img/2.png" alt="눅윤">
+              <h3 class="portfolio_name">nookyoon (리뉴얼 사이트)</h3>
+              <div class="tag">
+                <span>#HTML #CSS #JS #반응형</span>		
+                <span>#작업기간 7일</span>		
+              </div>
+              <div class="btn">
+                <a href="nookyoon/index.html" target="_blank" title="새창으로 열기" tabindex="0">view</a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <img src="img/3.png" alt="뉴발란스">
+              <h3 class="portfolio_name">뉴발란스 공식 홈페이지 (클론 사이트)</h3>
+              <div class="tag">
+                <span>#HTML #CSS #JS</span>		
+                <span>#작업기간 15일</span>		
+              </div>
+              <div class="btn">
+                <a href="NB/index.html" target="_blank" title="새창으로 열기" tabindex="0">view</a>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+    </section>
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <script>
+      // Initialize Swiper
+      var mySwiper = new Swiper(".swiper-container", {
+        loop: true, // 루프 모드 활성화
+        autoplay: {
+          delay: 4000, // 슬라이드 간 시간 간격 (밀리초)
+        },
+        effect: "fade", // 페이드 효과 사용
+        on: {
+          slideChangeTransitionStart: function () {
+            // 슬라이드 전환 시작할 때
+            $(".visual .swiper-slide").css("opacity", "0"); // 모든 슬라이드의 오퍼시티를 0으로 설정
+          },
+          slideChangeTransitionEnd: function () {
+            // 슬라이드 전환 끝날 때
+            $(".visual .swiper-slide-active").css("opacity", "1"); // 활성 슬라이드의 오퍼시티를 1로 설정
+          },
+        },
+      }); 
+    </script>
+    <script>
+      $(document).ready(function () {
+        // Scroll Down 버튼 클릭 시
+        $(".btn-scrolldown").click(function () {
+          // aboutme 섹션의 상단 좌표를 가져옴
+          var aboutmeTop = $(".contents.aboutme").offset().top;
+
+          // 화면을 aboutme 섹션으로 스크롤
+          $("html, body").animate({ scrollTop: aboutmeTop }, 500);
+        });
+      });
+
+      $(function () {
+  let el = $("section"); // 모든 <section> 요소를 선택합니다.
+
+  $(el).each(function (index) {
+    $(this).on("mousewheel", function () {
+      console.log(event.wheelDelta); // 마우스 휠 이벤트의 wheelDelta 값을 콘솔에 출력합니다.
+      let moveTop = $(window).scrollTop(); // 현재 스크롤 위치를 가져옵니다.
+      let eleSelector = $(el).eq(index); // 현재 작업 중인 <section> 요소를 선택합니다.
+
+      if (event.wheelDelta < 0) {
+        // 마우스 휠을 아래로 움직였을 때
+        if ($(eleSelector).next() != undefined) {
+          try {
+            moveTop = $(eleSelector).next().offset().top; // 다음 섹션의 상단 좌표를 가져옵니다.
+          } catch (e) {}
+        }
+      } else {
+        // 마우스 휠을 위로 움직였을 때
+        if ($(eleSelector).prev() != undefined) {
+          try {
+            moveTop = $(eleSelector).prev().offset().top; // 이전 섹션의 상단 좌표를 가져옵니다.
+          } catch (e) {}
+        }
+      }
+
+      // 스크롤 애니메이션을 사용하여 페이지를 원하는 섹션으로 스크롤합니다.
+      $("html,body").stop().animate({ scrollTop: moveTop + "px" }, 500);
+    });
+  });
+});
+    </script>
+    <script>
+      $(document).ready(function () {
+  let pageIndex = 0; // 현재 페이지 인덱스
+  const numPages = $(".page").length; // 페이지 수
+  const $scrollContainer = $(".contents.web-page");
+
+  // 가로 스크롤 이벤트 처리
+  $scrollContainer.on("wheel", function (e) {
+    e.preventDefault(); // 기본 스크롤 이벤트 중지
+
+    if (e.originalEvent.deltaX > 0) {
+      // 가로로 오른쪽 스크롤 시
+      if (pageIndex < numPages - 1) {
+        pageIndex++;
+      }
+    } else if (e.originalEvent.deltaX < 0) {
+      // 가로로 왼쪽 스크롤 시
+      if (pageIndex > 0) {
+        pageIndex--;
+      }
+    }
+
+    // 해당 페이지로 이동
+    scrollToPage(pageIndex);
+  });
+
+  // 이전 페이지로 이동
+  function scrollToPage(index) {
+    const scrollLeft = index * $scrollContainer.width();
+    $scrollContainer.animate({ scrollLeft: scrollLeft }, 800);
+  }
+});
+    </script>
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+  </body>
+</html>

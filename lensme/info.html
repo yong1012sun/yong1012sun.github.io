@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="images/img_index/iconlogo.svg" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <title>LENSME</title>
+    <style>
+      #map {
+        position: relative;
+        width: 100%;
+        height: 820px;
+      }
+      .chain_store {
+        position: absolute;
+        z-index: 1000;
+        width: 320px;
+        height: 700px;
+        background: #fff;
+        border-radius: 50px;
+        margin: 60px 40px;
+        text-align: center;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+      }
+      .tit {
+        background: #484848;
+        border-radius: 100px 100px 0 0;
+        height: 50px;
+        line-height: 50px;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 15px;
+      }
+      .map_search {
+        margin-bottom: 30px;
+      }
+      .custom-select {
+        font-size: 12px;
+        padding: 3px 23px 3px 10px;
+        border-color: #dee1e4;
+        border-radius: 0;
+      }
+      #ps_area1 {
+        width: 150px;
+        height: 40px;
+        color: #555555;
+      }
+      #ps_area2 {
+        width: 120px;
+        height: 40px;
+        color: #555555;
+      }
+      .form-common {
+        border: 1px solid #dee1e4;
+        width: 250px;
+        height: 40px;
+        margin-top: 10px;
+        padding: 0 10px;
+      }
+      :focus {
+        outline: none;
+      }
+      .board_sch {
+        margin-top: 15px;
+        width: 270px;
+        height: 40px;
+        border-radius: 10px;
+        border: none;
+        background: #484848;
+        color: #fff;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      #chain_list {
+        padding: 0 0 10px;
+        border-bottom: 1px solid #dee1e4;
+      }
+      .map_list {
+        display: flex;
+        justify-content: center;
+      }
+      .map_select {
+        border-bottom: 1px solid #dee1e4;
+        width: 270px;
+        padding: 10px;
+        cursor: pointer;
+      }
+      .map_select div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .store_num {
+        display: inline-block;
+        text-align: center;
+        border-radius: 30px;
+        border: 2px solid #ccc;
+        font-size: 11px;
+        height: 25px;
+        width: 25px;
+        line-height: 2;
+        background-color: #fff;
+        color: #191919;
+        margin-right: 5px;
+      }
+      @media (max-width: 768px) {
+        .chain_store {
+          height: 250px;
+          top: 45%;
+          margin: 0 75px;
+        }
+        #chain_list  {
+          display: none;
+        }
+        .map_list {
+          display: none;
+        }
+      }
+    </style>
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+  </head>
+  <body>
+    <!-- 상단 로고 시작 -->
+    <header id="main_header">
+      <div class="header_fixed" id="main_header2">
+        <div class="header_top">
+          <div class="text-center">
+            <a href="index.html" class="logo">
+              <img src="images/img_icon/logo.png" alt="LENSME" />
+            </a>
+          </div>
+        </div>
+        <!-- 상단 로고 끝 -->
+        <!-- 메뉴 시작 -->
+        <div class="menu">
+          <nav class="navbar navbar_custom">
+            <ul class="header_menu">
+              <li>
+                <a class="nav-link" href="pick up.html">
+                  <p class="nav-p nav-p-point">
+                    <span class="eg-nav">PICK UP</span>
+                    <span class="ko-nav">픽업안내</span>
+                  </p>
+                </a>
+              </li>
+              <li>
+                <a class="nav-link nav-link2" href="item.html">
+                  <p class="nav-p">
+                    <span class="eg-nav">LENSME ITEM</span>
+                    <span class="ko-nav">유형별</span>
+                  </p>
+                </a>
+                <div class="category_list category_list_xl">
+                  <ul class="cate_list">
+                    <li class="cate_sec">
+                      <a href="item.html" class="b_cate">컬러별</a>
+                      <ul class="block_ul">
+                        <li class="d-md-none"><a href="item.html">전체</a></li>
+                        <li><a href="item_br.html">브라운</a></li>
+                        <li><a href="item_gr.html">그레이</a></li>
+                        <li><a href="item_ck.html">쵸코</a></li>
+                        <li><a href="item_bk.html">블랙</a></li>
+                        <li><a href="item_blgr.html">블루,그린</a></li>
+                        <li><a href="item_piva.html">핑크,바이올렛</a></li>
+                        <li><a href="item_red.html">레드</a></li>
+                      </ul>
+                    </li>
+                    <li class="cate_sec">
+                      <a href="" class="b_cate">직경별</a>
+                      <ul class="block_ul">
+                        <li class="d-md-none"><a href="">전체</a></li>
+                        <li><a href="">12.1~13.1</a></li>
+                        <li><a href="">13.2~13.4</a></li>
+                        <li><a href="">13.5~13.7</a></li>
+                        <li><a href="">13.8~14.0</a></li>
+                      </ul>
+                    </li>
+                    <li class="cate_sec">
+                      <a href="" class="b_cate bb_cate">기능별</a>
+                      <ul class="block_ul">
+                        <li class="d-md-none"><a href="">전체</a></li>
+                        <li><a href="">원데이</a></li>
+                        <li><a href="">2주/한달용</a></li>
+                        <li><a href="">장기착용</a></li>
+                        <li><a href="">실리콘하이드로겔</a></li>
+                        <li><a href="">퍼스핏(PC) 렌즈</a></li>
+                        <li><a href="">투명 렌즈</a></li>
+                        <li><a href="">코스프레,공막</a></li>
+                      </ul>
+                    </li>
+                    <li class="cate_sec">
+                      <a href="" class="b_cate bb_cate">가격별</a>
+                      <ul class="block_ul">
+                        <li class="d-md-none"><a href="">전체</a></li>
+                        <li><a href="">10,000원대 미만</a></li>
+                        <li><a href="">10,000원대</a></li>
+                        <li><a href="">20,000원대</a></li>
+                        <li><a href="">20,000원대</a></li>
+                        <li><a href="">40,000원대 이상~</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <div class="cate_ban">
+                    <a href="goods_yous_bk.html" target="1"
+                      ><img
+                        src="images/img_index/20230801165440_83008694.jpg"
+                        class="img-fluid"
+                    /></a>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <a class="nav-link" href="toric.html">
+                  <p class="nav-p">
+                    <span class="eg-nav">TORIC</span>
+                    <span class="ko-nav">난시용</span>
+                  </p>
+                </a>
+                <div class="category_list">
+                  <ul>
+                    <li class="cate_sec">
+                      <a href="toric.html" class="b_cate">컬러별</a>
+                      <ul>
+                        <li><a href="toric_br.html">브라운</a></li>
+                        <li><a href="toric_gr.html">그레이</a></li>
+                        <li><a href="toric_ck.html">쵸코</a></li>
+                        <li><a href="toric_bk.html">블랙</a></li>
+                        <li><a href="toric_bg.html">블루,그린</a></li>
+                        <li><a href="toric_pv.html">핑크,바이올렛</a></li>
+                        <li><a href="toric_red.html">레드</a></li>
+                      </ul>
+                    </li>
+                    <li class="cate_sec">
+                      <a href="" class="b_cate">주기별</a>
+                      <ul>
+                        <li><a href="">1 MONTH</a></li>
+                        <li><a href="">6 MONTH</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <a class="nav-link" href="event_list.html">
+                  <p class="nav-p">
+                    <span class="eg-nav">EVENT</span>
+                    <span class="ko-nav">이벤트</span>
+                  </p>
+                </a>
+              </li>
+              <li>
+                <a class="nav-link" href="news.html">
+                  <p class="nav-p">
+                    <span class="eg-nav">COMMUNITY</span>
+                    <span class="ko-nav">커뮤니티</span>
+                  </p>
+                </a>
+                <div class="category_list">
+                  <ul>
+                    <li><a href="news.html">렌즈미 뉴스</a></li>
+                    <li><a href="dr.html">Dr.렌즈미</a></li>
+                    <li><a href="webtoon.html">WEBTOON</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <a class="nav-link" href="info.html">
+                  <p class="nav-p">
+                    <span class="eg-nav">STOPE INFO</span>
+                    <span class="ko-nav">매장안내</span>
+                  </p>
+                </a>
+              </li>
+            </ul>
+            <div class="header_sub_menu">
+              <div class="sub_menu_text">
+                <a href="login.html">로그인</a>
+                <a href="join.html">회원가입</a>
+                <a href="cart.html">장바구니</a>
+              </div>
+              <div class="sch_click">
+                <span class="material-symbols-outlined hydrated search-icon">
+                  search
+                </span>
+                <span class="material-symbols-outlined hydrated close-icon">
+                  close
+                </span>
+              </div>
+            </div>
+          </nav>
+          <div class="sch_wrap">
+            <div class="sch_in">
+              <form name="headerGoodsSearchForm">
+                <input
+                  type="text"
+                  name="ps_keyword"
+                  value=""
+                  class="form-control"
+                  placeholder="무엇을 찾고 계신가요?"
+                />
+                <button type="submit" class="btn btn-control">
+                  <span class="material-symbols-outlined hydrated">
+                    search
+                  </span>
+                </button>
+              </form>
+              <div class="keyword">
+                <p>인기검색어</p>
+                <ul>
+                  <li><a href="goods_yous_ck.html">유스 원데이 쵸코</a></li>
+                  <li><a href="goods_nuo_br.html">누오 브라운</a></li>
+                  <li><a href="goods_sheb_gr.html">샤벳 그레이</a></li>
+                  <li><a href="goods_cat_gr.html">아이포캣 그레이</a></li>
+                  <li>
+                    <a href="goods_blonty_br.html">메이크룩 블론티 브라운</a>
+                  </li>
+                  <li><a href="goods_idu_br">아이듀 톤업 브라운</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- 메뉴 끝 -->
+    <div id="map">
+      <div class="chain_store">
+        <p class="tit">가맹점 찾기</p>
+        <input type="hidden" name="ps_mode" value="search" />
+        <input type="hidden" name="geolocationy" value="" />
+        <input type="hidden" name="geolocationx" value="" />
+        <div class="map_search">
+          <div class="input-group">
+            <select class="custom-select" id="ps_area1" name="ps_area1">
+              <option value="">도/시 선택</option>
+              <option
+                value="경기도"
+                data-area2="고양시|^|광명시|^|광주시|^|구리시|^|군포시|^|김포시|^|남양주시|^|..."
+              >
+                경기도
+              </option>
+              <option
+                value="서울특별시"
+                data-area2="강남구|^|강동구|^|관악구|^|광진구|^|구로구|^|금천구|^|노원구|^|도봉구|^|동대문구|^|동작구|^|마포구|^|서초구|^|성북구|^|송파구|^|양천구|^|영등포구|^|용산구|^|은평구|^|종로구|^|중구|^|중랑구"
+              >
+                서울특별시
+              </option>
+              <option
+                value="부산광역시"
+                data-area2="금정구|^|남구|^|동래구|^|부산진구|^|북구|^|사하구|^|영도구|^|중구|^|해운대구"
+              >
+                부산광역시
+              </option>
+              <option
+                value="인천광역시"
+                data-area2="계양구|^|남구|^|남동구|^|미추홀구|^|부평구|^|서구|^|연수구"
+              >
+                인천광역시
+              </option>
+              <option
+                value="대전광역시"
+                data-area2="동구|^|서구|^|유성구|^|중구"
+              >
+                대전광역시
+              </option>
+              <option
+                value="대구광역시"
+                data-area2="달서구|^|북구|^|서구|^|중구"
+              >
+                대구광역시
+              </option>
+              <option
+                value="광주광역시"
+                data-area2="광산구|^|남구|^|동구|^|북구|^|서구"
+              >
+                광주광역시
+              </option>
+              <option value="울산광역시" data-area2="남구|^|동구|^|중구">
+                울산광역시
+              </option>
+              <option value="세종특별자치시" data-area2="다정중앙로">
+                세종특별자치시
+              </option>
+              <option
+                value="충청남도"
+                data-area2="당진시|^|보령시|^|아산시|^|천안시"
+              >
+                충청남도
+              </option>
+              <option value="충청북도" data-area2="제천시|^|청주시|^|충주시">
+                충청북도
+              </option>
+              <option
+                value="경상남도"
+                data-area2="거제시|^|김해시|^|밀양시|^|진주시|^|창원시|^|통영시"
+              >
+                경상남도
+              </option>
+              <option
+                value="경상북도"
+                data-area2="경주시|^|구미시|^|상주시|^|안동시|^|칠곡군|^|포항시"
+              >
+                경상북도
+              </option>
+              <option value="전라남도" data-area2="목포시|^|순천시|^|여수시">
+                전라남도
+              </option>
+              <option
+                value="전라북도"
+                data-area2="군산시|^|남원시|^|익산시|^|전주시|^|정읍시"
+              >
+                전라북도
+              </option>
+              <option
+                value="강원도|강원특별자치도"
+                data-area2="삼척시|^|속초시|^|원주시|^|춘천시|^|홍천군"
+              >
+                강원도
+              </option>
+              <option value="제주특별자치도" data-area2="제주시">
+                제주특별자치도
+              </option>
+            </select>
+            <select class="custom-select" id="ps_area2" name="ps_area2">
+              <option value="">구/군 선택</option>
+            </select>
+          </div>
+          <div>
+            <input type="text" placeholder="가맹점명" class="form-common" />
+            <button class="board_sch">검색</button>
+          </div>
+        </div>
+        <div id="chain_list">
+          <div style="color: #555555">
+            총 <span style="color: #ee0000">2개</span>의 가맹점이
+            검색되었습니다.
+          </div>
+        </div>
+        <div class="map_list">
+          <ul>
+            <li class="map_select map1">
+                <div>
+                  <span class="store_num">1</span>
+                  <span style="font-size: 14px; color: #222222"
+                    ><b>렌즈미 가수원점</b></span
+                  >
+                </div>
+                <p style="font-size: 13px; color: #555555">
+                  대전광역시 서구 계백로 1149(도안동, 효진빌딩)105호
+                </p>
+                <p style="font-size: 13px; color: #555555">T. 042-544-2533</p>
+            </li>
+            <li class="map_select map2">
+              <div>
+                <span class="store_num">2</span>
+                <span style="font-size: 14px; color: #222222"
+                  ><b>렌즈미 대전둔산점</b></span
+                >
+              </div>
+              <p style="font-size: 13px; color: #555555">
+                대전광역시 서구 대덕대로185번길 30(둔산동, 명성빌딩)렌즈미
+              </p>
+              <p style="font-size: 13px; color: #555555">T. 042-486-1006</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- 하단 시작 -->
+  </footer>
+  <!-- 하단 끝 -->
+  <div class="bottom_btn">
+    <a href="#"
+      ><img src="images/img_icon/Group 21.png" alt="최근본상품" onclick='return confirm("회원 전용 서비스입니다. 로그인 하시겠습니까?");'
+    /></a>
+    <a href="#"
+      ><img src="images/img_icon/Group 22.png" alt="인생렌즈찾기"
+      onclick='return confirm("회원 전용 서비스입니다. 로그인 하시겠습니까?");' /></a>
+    <a href="#"><img src="images/img_icon/Group 23.png" alt="카톡상담" onclick='return confirm("회원 전용 서비스입니다. 로그인 하시겠습니까?");'/></a>
+    <a href="#"
+      ><img src="images/img_icon/Group 24.png" alt="맨위로가기"
+    /></a>
+  </div>
+    <script src="javascript/index.js"></script>
+    <script>
+      const area1Select = document.getElementById("ps_area1");
+      const area2Select = document.getElementById("ps_area2");
+
+      // 도/시 선택 옵션 변경 시 구/군 선택 옵션 업데이트
+      area1Select.addEventListener("change", function () {
+        const selectedArea =
+          area1Select.options[area1Select.selectedIndex].getAttribute(
+            "data-area2"
+          );
+        if (selectedArea) {
+          area2Select.innerHTML = ""; // 기존 옵션 제거
+          const area2Options = selectedArea.split("|^|");
+          for (const option of area2Options) {
+            const parts = option.split(":^:");
+            const optionElement = document.createElement("option");
+            optionElement.value = parts[0];
+            optionElement.textContent = parts[0];
+            area2Select.appendChild(optionElement);
+          }
+        } else {
+          area2Select.innerHTML = '<option value="">구/군 선택</option>';
+        }
+      });
+    </script>
+    <script>
+      var map = L.map("map").setView([36.3506, 127.3761], 13);
+      L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 20,
+        attribution: "© OpenStreetMap",
+      }).addTo(map);
+      
+      var LENSME2 = L.marker([36.3049, 127.3509]).addTo(map);
+      LENSME2.bindPopup(
+        "<b>렌즈미 대전 가수원점</b><br><br><b>주소 : </b>대전광역시 서구 계백로 1149<br>(도안동, 효진빌딩) 105호<br><b>연락처 : </b>042-544-2533<br><b>영업시간 : </b>평일 10:00 ~ 22:00,<br>일요일 및 공휴일 정상영업"
+      ).openPopup();
+      var LENSME1 = L.marker([36.3506, 127.3761]).addTo(map);
+      LENSME1.bindPopup(
+        "<b>렌즈미 대전 둔산점</b><br><br><b>주소 : </b>대전광역시 서구 대덕대로 185번길 30<br>(둔산동, 명성빌딩) 렌즈미<br><b>연락처 : </b>042-486-1006<br><b>영업시간 : </b>평일 11:00 ~ 22:00,<br>일요일 및 공휴일 정상영업"
+      ).openPopup();
+    </script>
+  </body>
+</html>

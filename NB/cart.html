@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>뉴발란스 공식 온라인 스토어</title>
+    <link rel="icon" href="img/index/logo.png" type="image/x-icon" />
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="css/head&foot.css" />
+    <link
+      rel="stylesheet"
+      href="css/cdn.jsdelivr.net_npm_swiper@10_swiper-bundle.css"
+    />
+    <script src="js/head&foot.js"></script>
+    <script src="js/cdn.jsdelivr.net_npm_swiper@10_swiper-bundle.js"></script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Noto Sans KR", Dotum, "돋움", sans-serif;
+        font-size: 14px;
+      }
+      ul {
+        list-style: none;
+      }
+      a {
+        text-decoration: none;
+        color: #141414;
+      }
+      img {
+        border-style: none;
+        vertical-align: middle;
+        max-width: 100%;
+        height: auto;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+      .container {
+        min-width: 1200px;
+        padding-bottom: 200px;
+      }
+      .container .contents {
+        width: 1200px;
+        margin: 0 auto;
+      }
+      .basket_wrap {
+        width: 980px;
+        margin: 0 auto;
+      }
+      .basket_wrap .title_area {
+        position: relative;
+        margin: 56px 0 50px;
+      }
+      .page_tit {
+        font-size: 33px;
+        color: #121212;
+        font-weight: 700;
+        letter-spacing: -0.04em;
+        line-height: 1;
+      }
+      .tt_step {
+        position: absolute;
+        right: 0;
+        top: 15px;
+      }
+      .tt_step span {
+        display: inline-block;
+        position: relative;
+        padding-bottom: 7px;
+        margin-right: 35px;
+        color: #aeaeae;
+        font-size: 18px;
+        line-height: 1;
+      }
+      .tt_step span.current {
+        border-bottom: 3px solid #141414;
+        color: #141414;
+      }
+      .tt_step span:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 5px;
+        right: -24px;
+        width: 8px;
+        height: 8px;
+        background: url(img/index/bg_bullet_step.png) no-repeat 0 bottom;
+      }
+      .tt_step span.current:after {
+        background-position: 0 0;
+      }
+      .tt_step span:last-child::after {
+        content: none;
+      }
+      .tbl_count .count {
+        margin-bottom: 18px;
+        font-size: 18px;
+        line-height: 1;
+      }
+      .tbl_count .count strong {
+        color: #cf0a2c;
+        font-size: 20px;
+        font-weight: 700;
+      }
+      .tbl_y {
+        border-top: 2px solid #444;
+      }
+      .tbl_y thead th {
+        height: 61px;
+        border-bottom: 1px solid #dbdbdb;
+        font-weight: 400;
+      }
+      table .no_data {
+        height: 285px !important;
+        padding: 0;
+        vertical-align: top !important;
+        text-align: center !important;
+      }
+      .tbl_y tbody td {
+        border-bottom: 1px solid #dbdbdb;
+      }
+      .no_data .txt01 {
+        padding: 167px 0 0;
+        background: url(img/index/icon_exclamation.png) no-repeat 50% 84px;
+        color: #141414;
+        font-size: 18px;
+        line-height: 20px;
+        letter-spacing: -0.04em;
+        text-align: center;
+      }
+      .cscenter {
+        margin-top: 148px;
+        border-top: 2px solid #000;
+      }
+      .cscenter ul li {
+        position: relative;
+        float: left;
+        width: 600px;
+        height: 170px;
+      }
+      .cscenter ul li:before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 50px;
+        top: 60px;
+        width: 52px;
+        height: 50px;
+      }
+      .cscenter ul li.faq:before {
+        background: url(img/index/bg_cscenter.png) no-repeat 0 0;
+      }
+      .cscenter ul li.inq:before {
+        background: url(img/index/bg_cscenter.png) no-repeat 0 100%;
+      }
+      .cscenter ul li:after {
+        content: "";
+        display: block;
+        position: absolute;
+        right: 43px;
+        top: 80px;
+        width: 8px;
+        height: 13px;
+        background: url(img/index/icon_arrow_gray2.png) no-repeat 0 0;
+      }
+      .cscenter ul li a {
+        display: block;
+        height: 50px;
+        padding: 58px 0 62px 137px;
+      }
+      .cscenter ul li a strong {
+        display: block;
+        font-size: 28px;
+        line-height: 1;
+      }
+      .cscenter ul li a span {
+        display: block;
+        margin-top: 8px;
+        color: #777;
+        line-height: 1;
+        letter-spacing: -0.04em;
+      }.cscenter .cs_number {
+    position: relative;
+    height: 204px;
+    background: #f4f4f4;
+}.cscenter .cs_number:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 51px;
+    width: 1px;
+    height: 90px;
+    background: #dbdbdb;
+}.cscenter .cs_number .box {
+    float: left;
+    width: 550px;
+    padding: 51px 0 0 50px;
+}.cscenter .cs_number .box .number {
+    float: left;
+    width: 300px;
+}.cscenter .cs_number .box .number dl dd {
+    margin-top: 7px;
+    font-size: 18px;
+    line-height: 1;
+}.cscenter .cs_number .box .time, .cscenter .cs_number .box .time dl dt {
+    float: left;
+}.cscenter .cs_number .box .time p {
+    margin-bottom: 11px;
+    color: #777;
+    font-size: 12px;
+    line-height: 1;
+}.cscenter .cs_number .box .time dl {
+    margin-top: 8px;
+    font-size: 13px;
+    overflow: hidden;
+}.cscenter .cs_number .box .time dl dd {
+    padding-left: 68px;
+}.cscenter .cs_number .box .time span {
+    display: block;
+    margin-top: 12px;
+    color: #999;
+    line-height: 1;
+}.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: ".";
+    clear: both;
+    height: 0;
+}.cscenter .cs_number .box + .box .number {
+    width: 240px;
+}
+    </style>
+  </head>
+  <body>
+    <div class="layerTopWrap" id="topLayerBanner">
+      <div class="layerTopCon">
+        <div class="layerTop_chk line_h1">
+          <a href="support.html" class="spBtn">자세히보기</a>
+          <input type="checkbox" id="ondayCloseForTopBanner" class="vm" />
+          <label for="ondayCloseForTopBanner" class="vm"
+            >오늘 다시보지 않기</label
+          >
+          <a href="#none" class="btnLayerClose02">닫기</a>
+        </div>
+      </div>
+    </div>
+    <div class="header fixhead">
+      <div class="top_menu">
+        <div class="inner">
+          <a href="" class="made"
+            ><img src="img/index/MADE IN USA  UK.png" alt=""
+          /></a>
+          <a href="" class="mynb"><img src="img/index/MYNB.png" alt="" /></a>
+          <ul class="clearfix">
+            <li><a href="">매장찾기</a></li>
+            <li><a href="">공지사항</a></li>
+            <li><a href="">FAQS</a></li>
+            <li><a href="">이벤트</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="gnb">
+        <div class="inner">
+          <h1 class="logo"><a href="/">New Balance</a></h1>
+          <header>
+            <div class="menu">
+              <ul class="clearfix">
+                <li class="nav"><a href="men.html">Men</a></li>
+                <li class="nav"><a href="women.html">Women</a></li>
+                <li class="nav"><a href="kids.html">Kids</a></li>
+                <li class="nav nav-nonecate">
+                  <a href="LC.html" style="color: #cf0a2c">런칭캘린더</a>
+                </li>
+                <li class="nav nav-nonecate">
+                  <a href="ESSENTIALS.html">ESSENTIALS</a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <div class="submenu">
+                <div class="lnb">
+                  <ul>
+                    <li>
+                      <ul>
+                        <li class="snb snb-t">Featured</li>
+                        <li class="snb"><a href="#">New</a></li>
+                        <li class="snb"><a href="#">Best</a></li>
+                        <li class="snb"><a href="#">바람막이</a></li>
+                        <li class="snb"><a href="#">나일론 맨투맨</a></li>
+                        <li class="snb"><a href="#">NB 러닝</a></li>
+                        <li class="snb"><a href="#">NB 새학기</a></li>
+                        <li class="snb"><a href="#">반팔티</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <ul class="lnb-after-l">
+                        <li class="snb snb-t">신발</li>
+                        <li class="snb"><a href="#">전체보기</a></li>
+                        <li class="snb"><a href="#">라이프 스타일</a></li>
+                        <li class="snb"><a href="#">Made in USA/UK</a></li>
+                        <li class="snb"><a href="#">530</a></li>
+                        <li class="snb"><a href="#">574</a></li>
+                        <li class="snb"><a href="#">327</a></li>
+                        <li class="snb"><a href="#">1906</a></li>
+                        <li class="snb"><a href="#">러닝</a></li>
+                        <li class="snb"><a href="#">워킹</a></li>
+                        <li class="snb"><a href="#">샌들/슬라이드</a></li>
+                        <li class="snb"><a href="#">골프</a></li>
+                        <li class="snb"><a href="#">농구</a></li>
+                        <li class="snb"><a href="#">축구</a></li>
+                        <li class="snb"><a href="#">야구/테니스</a></li>
+                        <li class="snb"><a href="#">스케이트보딩</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <ul>
+                        <li class="snb snb-t">의류</li>
+                        <li class="snb"><a href="#">전체보기</a></li>
+                        <li class="snb"><a href="#">바람막이/자켓</a></li>
+                        <li class="snb"><a href="#">후드티/맨투맨</a></li>
+                        <li class="snb"><a href="#">롱팬츠</a></li>
+                        <li class="snb"><a href="#">티셔츠</a></li>
+                        <li class="snb"><a href="#">숏팬츠</a></li>
+                        <li class="snb"><a href="#">타이즈</a></li>
+                        <li class="snb"><a href="#">래쉬가드</a></li>
+                        <li class="snb"><a href="#">다운 자켓/베스트</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <ul>
+                        <li class="snb snb-t">용품</li>
+                        <li class="snb"><a href="#">전체보기</a></li>
+                        <li class="snb"><a href="#">백팩</a></li>
+                        <li class="snb"><a href="#">가방</a></li>
+                        <li class="snb"><a href="#">양말</a></li>
+                        <li class="snb"><a href="#">모자</a></li>
+                        <li class="snb"><a href="#">기타</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <ul>
+                        <li class="snb snb-t">언더웨어</li>
+                        <li class="snb"><a href="#">전체보기</a></li>
+                        <li class="snb"><a href="#">드로즈</a></li>
+                        <li class="snb"><a href="#">릴랙서</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <ul>
+                        <li class="snb snb-t">스포츠</li>
+                        <li class="snb"><a href="#">RUNNING</a></li>
+                        <li class="snb"><a href="#">BASKETBALL</a></li>
+                        <li class="snb"><a href="#">OUTDOOR</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="submenu">
+                <div class="lnb">
+                  <ul>
+                    <li>
+                      <ul>
+                        <li class="snb snb-t">Featured</li>
+                        <li class="snb"><a href="#">New</a></li>
+                        <li class="snb"><a href="#">Best</a></li>
+                        <li class="snb"><a href="#">바람막이</a></li>
+                        <li class="snb"><a href="#">나일론 맨투맨</a></li>
+                        <li class="snb"><a href="#">NB 러닝</a></li>
+                        <li class="snb"><a href="#">NB 새학기</a></li>
+                        <li class="snb"><a href="#">반팔티</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <ul class="lnb-after-l">
+                        <li class="snb snb-t">신발</li>
+                        <li class="snb"><a href="#">전체보기</a></li>
+                        <li class="snb"><a href="#">라이프 스타일</a></li>
+                        <li class="snb"><a href="#">Made in USA/UK</a></li>
+                        <li class="snb"><a href="#">530</a></li>
+                        <li class="snb"><a href="#">574</a></li>
+                        <li class="snb"><a href="#">327</a></li>
+                        <li class="snb"><a href="#">1906</a></li>
+                        <li class="snb"><a href="#">러닝</a></li>
+                        <li class="snb"><a href="#">워킹</a></li>
+                        <li class="snb"><a href="#">골프</a></li>
+                        <li class="snb"><a href="#">샌들/슬라이드</a></li>
+                        <li class="snb"><a href="#">스튜디오/테니스</a></li>
+                        <li class="snb"><a href="#">스케이트보딩</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <ul>
+                        <li class="snb snb-t">의류</li>
+                        <li class="snb"><a href="#">전체보기</a></li>
+                        <li class="snb"><a href="#">바람막이/자켓</a></li>
+                        <li class="snb"><a href="#">후드티/맨투맨</a></li>
+                        <li class="snb"><a href="#">롱팬츠</a></li>
+                        <li class="snb"><a href="#">티셔츠</a></li>
+                        <li class="snb"><a href="#">숏팬츠</a></li>
+                        <li class="snb"><a href="#">레깅스</a></li>
+                        <li class="snb"><a href="#">슬리브리스/브라탑</a></li>
+                        <li class="snb"><a href="#">스커트/원피스</a></li>
+                        <li class="snb"><a href="#">래쉬가드</a></li>
+                        <li class="snb"><a href="#">다운 자켓/베스트</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <ul>
+                        <li class="snb snb-t">용품</li>
+                        <li class="snb"><a href="#">전체보기</a></li>
+                        <li class="snb"><a href="#">백팩</a></li>
+                        <li class="snb"><a href="#">가방</a></li>
+                        <li class="snb"><a href="#">양말</a></li>
+                        <li class="snb"><a href="#">모자</a></li>
+                        <li class="snb"><a href="#">기타</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <ul>
+                        <li class="snb snb-t">언더웨어</li>
+                        <li><a href="#">전체보기</a></li>
+                        <li><a href="#">브라/캐미솔</a></li>
+                        <li><a href="#">팬티/드로즈</a></li>
+                        <li><a href="#">릴랙서</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <ul>
+                        <li class="snb snb-t">스포츠</li>
+                        <li class="snb"><a href="#">STUDIO</a></li>
+                        <li class="snb"><a href="#">RUNNING</a></li>
+                        <li class="snb"><a href="#">TENNIS</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="submenu">
+                <div class="lnb">
+                  <ul>
+                    <li>
+                      <ul>
+                        <li class="snb snb-t">Featured</li>
+                        <li class="snb">
+                          <a href="#" style="color: #ff00ff"
+                            >뉴키모다운 Pre-order</a
+                          >
+                        </li>
+                        <li class="snb">
+                          <a href="#" style="color: #0000ff"
+                            >NK COLOR PACK 에디션</a
+                          >
+                        </li>
+                        <li class="snb"><a href="#">Light down</a></li>
+                        <li class="snb"><a href="#">New</a></li>
+                        <li class="snb"><a href="#">Best</a></li>
+                        <li class="snb"><a href="#">키즈메인</a></li>
+                        <li class="snb">
+                          <a href="#" style="color: tomato"
+                            >NBgC(NB girls CLUB)</a
+                          >
+                        </li>
+                        <li class="snb"><a href="#">런칭 캘린더</a></li>
+                        <li class="snb"><a href="#">KIDS2002</a></li>
+                        <li class="snb"><a href="#">KIDS990</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <ul class="lnb-after-l">
+                        <li class="snb snb-t">신발</li>
+                        <li class="snb"><a href="#">전체보기</a></li>
+                        <li class="snb"><a href="#">New-b(110~130mm)</a></li>
+                        <li class="snb"><a href="#">운동화(130~160mm)</a></li>
+                        <li class="snb"><a href="#">운동화(170~220mm)</a></li>
+                        <li class="snb"><a href="#">운동화(225~240mm)</a></li>
+                        <li class="snb"><a href="#">샌들(130~160mm)</a></li>
+                        <li class="snb"><a href="#">샌들(170~220mm)</a></li>
+                        <li class="snb"><a href="#">530</a></li>
+                        <li class="snb"><a href="#">2002</a></li>
+                        <li class="snb"><a href="#">878</a></li>
+                        <li class="snb"><a href="#">327</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <ul>
+                        <li class="snb snb-t">의류</li>
+                        <li class="snb"><a href="#">전체보기</a></li>
+                        <li class="snb"><a href="#">Essential</a></li>
+                        <li class="snb"><a href="#">바람막이/점퍼</a></li>
+                        <li class="snb"><a href="#">상하의 셋업</a></li>
+                        <li class="snb"><a href="#">티셔츠</a></li>
+                        <li class="snb"><a href="#">후드티/맨투맨</a></li>
+                        <li class="snb"><a href="#">숏팬츠</a></li>
+                        <li class="snb"><a href="#">팬츠</a></li>
+                        <li class="snb"><a href="#">원피스/스커트</a></li>
+                        <li class="snb"><a href="#">애슬레져/레깅스</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <ul>
+                        <li class="snb snb-t">용품</li>
+                        <li class="snb"><a href="#">전체보기</a></li>
+                        <li class="snb"><a href="#">고학년 책가방</a></li>
+                        <li class="snb"><a href="#">피크닉 가방</a></li>
+                        <li class="snb"><a href="#">사이드 백</a></li>
+                        <li class="snb"><a href="#">백팩</a></li>
+                        <li class="snb"><a href="#">양말</a></li>
+                        <li class="snb"><a href="#">모자</a></li>
+                        <li class="snb"><a href="#">워터 스포츠</a></li>
+                        <li class="snb"><a href="#">Acc</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <ul>
+                        <li class="snb snb-t">카테고리</li>
+                        <li class="snb"><a href="#">신발</a></li>
+                        <li class="snb"><a href="#">의류</a></li>
+                        <li class="snb"><a href="#">용품</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </header>
+          <div class="customer">
+            <div class="top_search nav">
+              <a href="" class="btn_srch">검색</a>
+              <div class="category_box">
+                <div class="srch_area">
+                  <span class="select_box select_box-srch">
+                    <select name="prodPart" id="prodPart">
+                      <option value="">전체</option>
+                      <option value="M">MEN</option>
+                      <option value="W">WOMEN</option>
+                      <option value="K">KIDS</option>
+                    </select>
+                  </span>
+                  <input
+                    type="text"
+                    name="schWord"
+                    id="schWord"
+                    class="ip_text ip_text-srch"
+                    title="검색어 입력"
+                    placeholder="상품명 혹은 스타일코드 검색"
+                    autocomplete="off"
+                  />
+                  <button type="submit" class="btn_ty_bface sm" id="btnProdSch">
+                    검색
+                  </button>
+                </div>
+                <div class="keyword" id="keyword">
+                  <span>
+                    <a href="">610</a>
+                  </span>
+                  <span>
+                    <a href="">가을 후드</a>
+                  </span>
+                  <span>
+                    <a href="">긴팔티</a>
+                  </span>
+                  <span>
+                    <a href="">530</a>
+                  </span>
+                  <span>
+                    <a href="">574</a>
+                  </span>
+                </div>
+                <div class="collection">
+                  <ul>
+                    <li>
+                      <a href=""
+                        ><img
+                          src="img/index/NB20230828133902496001.jpg"
+                          alt=""
+                        /><span>From the early 2000, Retro Runners</span></a
+                      >
+                    </li>
+                    <li>
+                      <a href=""
+                        ><img
+                          src="img/index/NB20230822173714733001.gif"
+                          alt=""
+                        /><span>뉴발란스 바람막이</span></a
+                      >
+                    </li>
+                    <li>
+                      <a href=""
+                        ><img
+                          src="img/index/NB20230308105955843001.jpg"
+                          alt=""
+                        /><span>NB KIDS LITTLE 503 new colors</span></a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="mymenu">
+              <a href="login.html">로그인</a>
+              <a href="join.html">회원가입</a>
+            </div>
+            <div class="cart none_count">
+              <a href="cart.html">
+                <span class="blind">장바구니</span><span class="count">0</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="dimm_gnb"></div>
+    <!-- // -->
+    <div class="container">
+      <div class="contents">
+        <div class="basket_wrap">
+          <div class="title_area">
+            <h2 class="page_tit">장바구니</h2>
+            <div class="tt_step">
+              <span class="current">장바구니</span>
+              <span>주문/결제</span>
+              <span>주문완료</span>
+            </div>
+          </div>
+          <div class="tbl_count">
+            <p class="count">총 <strong>0</strong>개</p>
+          </div>
+          <div class="tbl_y">
+            <table class="tbl_basket">
+              <caption style="display: none">
+                장바구니 담긴 내역
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col" class="chkbox">
+                    <em class="chk"
+                      ><input
+                        type="checkbox"
+                        id="checkbox_all"
+                        name="checkbox_all"
+                        class="ip_chekbox"
+                        checked=""
+                      /><label for="checkbox_all"
+                        ><span class="blind">전체선택</span></label
+                      ></em
+                    >
+                  </th>
+                  <th scope="col">상품/옵션 정보</th>
+                  <th scope="col">수량</th>
+                  <th scope="col">주문금액</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="5" class="no_data">
+                    <p class="txt01">장바구니에 담은 상품이 없습니다.</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="cscenter">
+          <ul class="clearfix">
+            <li class="faq">
+              <a href=""
+                ><strong>FAQs</strong
+                ><span>가장 자주 묻는 질문과 답변을 찾아보세요.</span></a
+              >
+            </li>
+            <li class="inq">
+              <a href=""
+                ><strong>1:1 문의</strong
+                ><span
+                  >1:1 문의를 남겨 주시면 빠른 시간 내에 도와드리겠습니다.</span
+                ></a
+              >
+            </li>
+          </ul>
+          <div class="cs_number">
+            <div class="box clearfix">
+              <div class="number as">
+                <dl>
+                  <dt>뉴발란스/뉴발란스키즈 온라인스토어 고객센터</dt>
+                  <dd>TEL. 1566-0086</dd>
+                </dl>
+              </div>
+              <div class="time">
+                <p>운영시간</p>
+                <dl>
+                  <dt>평일</dt>
+                  <dd>10:00 - 17:00</dd>
+                </dl>
+                <dl>
+                  <dt>점심시간</dt>
+                  <dd>12:00 - 13:00</dd>
+                </dl>
+                <span>(토·일·공휴일 휴무)</span>
+              </div>
+            </div>
+            <div class="box clearfix">
+              <div class="number">
+                <dl>
+                  <dt>A/S 및 뉴발란스 고객센터</dt>
+                  <dd>080 - 999 - 0456</dd>
+                </dl>
+              </div>
+              <div class="time">
+                <p>오프라인 매장 상품, 재고 문의 및 구입한 상품 A/S 문의</p>
+                <dl>
+                  <dt>평일</dt>
+                  <dd>09:00 - 18:00</dd>
+                </dl>
+                <dl>
+                  <dt>점심시간</dt>
+                  <dd>12:00 - 13:00</dd>
+                </dl>
+                <span>(토·일·공휴일 휴무)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- // -->
+    <a href="kakao.html" class="btn_floatKakao" target="_blank"
+      ><span class="blind">카카오톡상담톡</span></a
+    >
+    <footer>
+      <div class="foot_link">
+        <ul>
+          <li>
+            <a href="">
+              <strong>FIND A STORE</strong>
+              <span>매장안내</span>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <strong>TEAM WEAR</strong>
+              <span>팀 / 단체복 구매</span>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <strong>MEMBER JOIN</strong>
+              <span>회원가입</span>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <strong>DOWNLOAD APP</strong>
+              <span>App 다운로드</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="foot_inner">
+        <div class="foot_menu">
+          <div class="list">
+            <strong>NEED HELP</strong>
+            <ul>
+              <li><a href="">고객센터</a></li>
+              <li><a href="">FAQs</a></li>
+              <li><a href="">공지사항</a></li>
+              <li><a href="">1:1 문의</a></li>
+              <li><a href="">매장 찾기</a></li>
+              <li><a href="">App 다운로드</a></li>
+            </ul>
+          </div>
+          <div class="list">
+            <strong>IMFORMATION</strong>
+            <ul>
+              <li><a href="">통합 마일리지 안내</a></li>
+              <li><a href="">팀/단체복 주문안내</a></li>
+              <li><a href="">배송 및 반품 안내</a></li>
+              <li><a href="">세탁 및 손질 방법 안내</a></li>
+              <li><a href="">이용약관</a></li>
+              <li><a href="">SITE MAP</a></li>
+            </ul>
+          </div>
+          <div class="list">
+            <strong>INSIDE NB</strong>
+            <ul>
+              <li><a href="">INSIDE NB</a></li>
+              <li><a href="">MADE IN USA/UK</a></li>
+              <li><a href="">NBx GULDE</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="foot_info">
+          <div class="sns">
+            <a href="" class="in"><span class="blind">INSTAGRAM</span></a>
+            <a href="" class="nbrc"><span class="blind">NBRC</span></a>
+            <a href="" class="fb"><span class="blind">FACEBOOK</span></a>
+            <a href="" class="yt"><span class="blind">YOUTUBE</span></a>
+            <a href="" class="nb_l">NB LIFE STYLE</a>
+            <a href="" class="nb_k">NB KIDS</a>
+          </div>
+          <div class="copyright">
+            <p>
+              <a href="" class="c_link"><span>개인정보 처리방침</span></a> /
+              <a href="" class="c_link">이용약관</a> / ㈜이랜드월드패션사업부 /
+              서울특별시 금천구 가산디지털1로 159 이랜드월드
+              <br />
+              온라인 고객센터 : 1566-0086, AS/오프라인 고객센터 : 080-999-0456
+              <br />
+              대표 이메일 : <a href="">webmaster@nbkorea.com</a>
+              <br />
+              호스팅 서비스 제공자 : (주)라드씨엔에스
+            </p>
+            <p>
+              <span>대표이사 : 최운식</span>
+              <span>사업자등록번호 : 113-85-19030</span>
+              <span>통신판매업신고 : 금천구청 제 2005-01053 </span> <br /><span
+                >개인정보보호책임자 : 최운식 </span
+              ><a href="#" class="btn_line"> 사업자정보조회</a>
+              <br />온라인디지털콘텐츠산업발전법에 의한
+              <a href="" class="btn_line">콘텐츠보호안내 자세히보기</a>
+            </p>
+            <div class="isms">
+              <p class="isms_img">
+                <a href="">
+                  <img src="img/index/ISMS-P.png" alt="isms-p" />
+                </a>
+              </p>
+              <p>
+                <span>[인증범위] 이랜드월드 온라인 서비스 운영</span>
+                <span>[유효기간] 2023.05.03~2026.05.02</span>
+              </p>
+            </div>
+            <p class="copy">Copyright 2018. New Balance</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
