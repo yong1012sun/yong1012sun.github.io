@@ -1,6 +1,7 @@
 @font-face {
   font-family: "Vitro_core";
-  src: url("../Font/VITRO_Font_TTF/VITRO\ CORE\ TTF.ttf");
+  src: url("../Font/VITRO_Font_TTF/Vitro_core.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
